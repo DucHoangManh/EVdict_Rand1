@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="740.0" style="-fx-background-color: #c8d6e5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <AnchorPane prefHeight="151.0" prefWidth="740.0" style="-fx-background-color: #10ac84;">
+         <children>
+            <Label layoutX="589.0" layoutY="54.0" onMouseClicked="#translatePara" prefHeight="37.0" prefWidth="136.0" text=" Dịch đoạn văn" textAlignment="CENTER" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/paragraph.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="updateLabel" layoutX="589.0" layoutY="14.0" onMouseClicked="#editWord" prefHeight="37.0" prefWidth="136.0" text=" Cập nhật từ" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </children></AnchorPane>
+      <ListView fx:id="wordList" layoutX="14.0" layoutY="151.0" onEditStart="#init" prefHeight="441.0" prefWidth="270.0" />
+      <Label contentDisplay="CENTER" layoutX="309.0" layoutY="93.0" prefHeight="21.0" prefWidth="366.0" text="Thông tin của từ" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="wordField" layoutX="14.0" layoutY="120.0" onAction="#getText" onMouseClicked="#getText" prefHeight="30.0" prefWidth="270.0" promptText="Nhập vào từ cần tra">
+         <font>
+            <Font size="13.0" />
+         </font></TextField>
+      <Label layoutX="40.0" layoutY="16.0" prefHeight="56.0" prefWidth="236.0" text="EVdict" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font></Label>
+      <ImageView fitHeight="20.0" fitWidth="38.0" layoutX="257.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/search.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="addLabel" layoutX="438.0" layoutY="14.0" onMouseClicked="#addWord" prefHeight="37.0" prefWidth="136.0" text="Thêm từ" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="16.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/add.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Label fx:id="deleteLabel" layoutX="439.0" layoutY="52.0" onMouseClicked="#deleteWord" prefHeight="37.0" prefWidth="136.0" text=" Xóa từ" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/trash-can.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="31.0" layoutY="72.0" prefHeight="17.0" prefWidth="218.0" text="Simple English-Vietnamese dictionary" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></Label>
+      <WebView fx:id="infoField" layoutX="300.0" layoutY="120.0" onInputMethodTextChanged="#getText" prefHeight="503.0" prefWidth="426.0" />
+      <AnchorPane layoutX="513.0" layoutY="427.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label alignment="CENTER" layoutX="14.0" layoutY="606.0" prefHeight="17.0" prefWidth="270.0" text="Group: Rand_01" textFill="#030000">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="speakLabel" layoutX="687.0" layoutY="118.0" onMouseClicked="#pronounceWord" prefHeight="37.0" prefWidth="39.0">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/500px-Speaker_Icon_gray.svg.png" />
+               </image>
+            </ImageView>
+         </graphic></Label>
+   </children>
+</AnchorPane>
