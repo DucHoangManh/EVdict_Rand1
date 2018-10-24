@@ -1,5 +1,5 @@
 package sample;
-import static java.nio.charset.StandardCharsets.*;
+import java.lang.System.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableListValue;
 import javafx.beans.value.ObservableValue;
@@ -29,6 +29,7 @@ import javafx.scene.web.WebView;
 import javafx.scene.layout.*;
 
 public class Controller {
+	String s=System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
 	Manage dataManager = new Manage();
 	String observeWord = "";
 	@FXML
@@ -168,7 +169,7 @@ public class Controller {
 			Speaker speaker=new Speaker();
 			speaker.speak(observeWord);
 		} catch (Exception e) {
-			e.printStackTrace(System.out);
+			System.out.println(e.getMessage());
 		}
 	}
 
