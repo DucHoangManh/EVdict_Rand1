@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import java.util.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #dfe4ea;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Label layoutX="25.0" layoutY="20.0" text="Tiếng Anh">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="310.0" layoutY="20.0" text="Tiếng Việt">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="outputPara" editable="false" layoutX="303.0" layoutY="50.0" prefHeight="282.0" prefWidth="283.0" wrapText="true">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font></TextArea>
+      <Button fx:id="confirmTranslatePara" layoutX="244.0" layoutY="352.0" mnemonicParsing="false" onAction="#paraTrans" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #45aaf2;" text="Dịch" textFill="WHITE" />
+      <TextArea fx:id="inputPara" layoutX="14.0" layoutY="50.0" prefHeight="282.0" prefWidth="283.0" wrapText="true">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font></TextArea>
+   </children>
+</AnchorPane>

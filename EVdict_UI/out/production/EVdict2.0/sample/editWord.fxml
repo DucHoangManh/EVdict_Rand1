@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="607.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Label layoutX="15.0" layoutY="14.0" prefHeight="30.0" prefWidth="600.0" text="Nhập vào từ bạn muốn sửa:">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button fx:id="confirmEditWord" layoutX="206.0" layoutY="563.0" mnemonicParsing="false" onAction="#editWordDB" prefHeight="25.0" prefWidth="219.0" text="Xác nhận">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <HTMLEditor fx:id="inputEdit" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="14.0" layoutY="53.0" prefHeight="502.0" prefWidth="600.0" />
+      <TextField fx:id="inputEditWord" layoutX="206.0" layoutY="17.0" onAction="#showEditWord" prefHeight="25.0" prefWidth="327.0" />
+      <Button fx:id="BshowWord" layoutX="550.0" layoutY="17.0" mnemonicParsing="false" onAction="#showEditWord" prefHeight="25.0" prefWidth="64.0" text="OK" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="472.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TextField fx:id="inputAddWord" layoutX="24.0" layoutY="51.0" prefHeight="25.0" prefWidth="257.0" />
+      <Label layoutX="24.0" layoutY="26.0" prefHeight="17.0" prefWidth="257.0" text="Nhập vào từ cần thêm">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="24.0" layoutY="77.0" prefHeight="17.0" prefWidth="512.0" text="Nhập vào thông tin của từ">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button fx:id="confirmAddWord" layoutX="214.0" layoutY="428.0" mnemonicParsing="false" onAction="#addWordToDB" prefHeight="25.0" prefWidth="219.0" text="Xác nhận">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <HTMLEditor fx:id="inputAddInfo" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="24.0" layoutY="102.0" prefHeight="312.0" prefWidth="600.0" />
+   </children>
+</AnchorPane>
