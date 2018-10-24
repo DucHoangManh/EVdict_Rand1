@@ -1,20 +1,32 @@
 package sample;
-
+import static java.nio.charset.StandardCharsets.*;
 import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableListValue;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
+import java.awt.TextField.*;
 import javafx.fxml.FXML;
+import javafx.scene.control.ButtonBar;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.net.URL;
 import java.io.*;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.scene.text.*;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.scene.layout.*;
 
 public class Controller {
 	Manage dataManager = new Manage();
@@ -54,7 +66,9 @@ public class Controller {
 	@FXML
 	private Button BshowWord;
 
-	Speaker speaker = new Speaker();
+
+	private Object fxmlLoader;
+
 	public void init() {
 	}
 
@@ -139,9 +153,9 @@ public class Controller {
 				success.setContentText("Bạn đã xóa từ " + observeWord + " !");
 				success.showAndWait();
 				// wordList.getItems().clear();
-
 				dataManager.deleteWord(observeWord);
 				wordList.getItems().remove(observeWord);
+
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -151,14 +165,16 @@ public class Controller {
 	@FXML
 	private void pronounceWord() {
 		try {
+			Speaker speaker=new Speaker();
 			speaker.speak(observeWord);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace(System.out);
 		}
 	}
 
 	@FXML
 	private void addWord() throws Exception {
+		Parent root;
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader();
 			fxmlLoader.setLocation(getClass().getResource("addWord.fxml"));
@@ -212,7 +228,8 @@ public class Controller {
 			}
 			String input = inputPara.getText();
 			String output = dataManager.translator(input);
-			outputPara.setText(output);
+			String value =new String(output.getBytes(),"UTF-8");
+			outputPara.setText(value);
 
 		} catch (Exception e) {
 			Alert paraTransFail = new Alert(Alert.AlertType.WARNING);
@@ -226,9 +243,14 @@ public class Controller {
 
 	@FXML
 	private void translatePara() throws Exception {
+		Parent root;
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader();
 			fxmlLoader.setLocation(getClass().getResource("paraTrans.fxml"));
+			/*
+			 * if "fx:controller" is not set in fxml
+			 * fxmlLoader.setController(NewWindowController);
+			 */
 			Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 			Stage stage = new Stage();
 			stage.setTitle("Dịch đoạn văn");
@@ -241,7 +263,9 @@ public class Controller {
 
 	@FXML
 	public void editWord() {
+		Parent root;
 		try {
+			System.out.println(observeWord);
 			FXMLLoader fxmlLoader = new FXMLLoader();
 			fxmlLoader.setLocation(getClass().getResource("editWord.fxml"));
 			/*
@@ -253,13 +277,14 @@ public class Controller {
 			stage.setTitle("Cập nhật từ");
 			stage.setScene(scene);
 			stage.show();
+			System.out.println(observeWord);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
-
+	
 	@FXML
-	public void showEditWord() {
+	public void showEditWord() { 
 		try {
 			String word = inputEditWord.getText();
 			inputEdit.setHtmlText(dataManager.explain(word));
@@ -287,6 +312,6 @@ public class Controller {
 			updateFail.showAndWait();
 			System.out.println(e.getMessage());
 		}
-
+		
 	}
 }
